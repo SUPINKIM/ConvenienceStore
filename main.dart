@@ -39,7 +39,8 @@ class _FirstpageState extends State<Firstpage>  {
   List _pages=[
     FirstProductpage(),
     SearchPage(),
-    Text("sss")
+    Text("yet1"),
+    Text("yet2")
   ];
 
   @override
@@ -52,11 +53,14 @@ class _FirstpageState extends State<Firstpage>  {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _onitemTapped,
-        selectedItemColor: Colors.green[700],
+        selectedItemColor: Colors.green[900],
+        selectedFontSize: 15,
+        unselectedItemColor: Colors.black45,
         items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(icon:Icon(Icons.home),title: Text('home')),
-        BottomNavigationBarItem(icon:Icon(Icons.search),title: Text('search')),
-        BottomNavigationBarItem(icon:Icon(Icons.person),title: Text('my')),
+        BottomNavigationBarItem(icon:Icon(Icons.home),title: Text('Home')),
+        BottomNavigationBarItem(icon:Icon(Icons.search),title: Text('Search')),
+        BottomNavigationBarItem(icon: Icon(Icons.card_giftcard), title: Text('PB')),
+        BottomNavigationBarItem(icon:Icon(Icons.person),title: Text('My')),
       ],
       ),
     );
