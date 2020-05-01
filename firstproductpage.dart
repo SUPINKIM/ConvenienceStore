@@ -22,7 +22,7 @@ class _FirstProductpageState extends State<FirstProductpage>  with TickerProvide
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.white,
-          title: (Text('Discount',style:TextStyle(color: Colors.black))),
+          title: (Text('Discount',style:TextStyle(color: Colors.black),)),
           bottom:TabBar(
             //labelColor: Colors.teal,
             labelColor: Colors.green[900],
@@ -33,7 +33,7 @@ class _FirstProductpageState extends State<FirstProductpage>  with TickerProvide
               topRight: Radius.circular(10)),
               color: Colors.white
           ),*/
-            indicatorColor: Colors.green,
+            indicatorColor: Colors.indigo[300],
             indicatorSize: TabBarIndicatorSize.label,
             controller: ctr,
             tabs: <Widget>[
