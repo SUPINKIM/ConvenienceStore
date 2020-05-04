@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'slidingUpPanel.dart';
 
 
 class SearchPage extends StatefulWidget {
@@ -28,16 +28,16 @@ class _SearchPageState extends State<SearchPage> {
     super.dispose();
   }
 
-  void _handleSubmitted(String str){
+  void _handleSubmitted(var str){
     // 검색 결과 예제
     int _index = 0;
     for(_index;_index<search_example.length;_index++){
       if (search_example[_index]==str){
-        print(str);
+        Navigator.push(context, MaterialPageRoute(builder: (context) => SlidingUpPanel()));  //슬라이딩 예제 화면으로 이동하며, 테스트 하는 경우 전체 주석 처리 해도 무방함.
+        break;
       }
       else {
-        print('검색 결과가 없습니다.');
-        break;
+        print('검색 결과가 없습니다. $_index');
       }
     }
     searchController.clear();  // 서치 버튼을 누르면 텍스트 사라지면서 해당 상품 리턴하게 코드 수정해야 함.
@@ -52,8 +52,8 @@ class _SearchPageState extends State<SearchPage> {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.fromLTRB(10.0, 160.0, 10.0, 60.0),//EdgeInsets.all (20.0),
-            child : Row(
-              mainAxisSize: MainAxisSize.min,
+            child : Stack(
+              //mainAxisSize: MainAxisSize.min,
               textDirection: TextDirection.ltr,
               children: <Widget>[
                 Container(
@@ -65,22 +65,26 @@ class _SearchPageState extends State<SearchPage> {
                       //icon: Icon(Icons.search,color: Colors.lightGreen),
                       hintText: '찾으시는 상품을 입력하세요.',
                       contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(32.0),
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
                       focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(32.0),
+                          borderRadius: BorderRadius.circular(10.0),
                           borderSide: BorderSide(color: Colors.green[600])
                       ),
                     ),
                   ),
-                  width: 310,
+                  width: 350,
                 ),
-                IconButton(
-                    icon: Icon(Icons.search),
-                    color: Colors.green[900],
-                    iconSize: 30,
-                    onPressed: () => _handleSubmitted(searchController.text)
+                Positioned(
+                  right:20 ,
+                  child: IconButton(
+                      icon: Icon(Icons.search),
+                      color: Colors.green[900],
+                      iconSize: 30,
+                      onPressed: () => _handleSubmitted(searchController.text)
+                  ),
                 )
               ],
             )
